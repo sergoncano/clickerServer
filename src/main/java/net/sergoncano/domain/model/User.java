@@ -6,7 +6,8 @@ import java.util.UUID;
 
 @Data
 @AllArgsConstructor
-public class Person {
+public class User {
 	private UUID uuid;
-	private int clicks;
+	private String name;
+	private int score;
 }
