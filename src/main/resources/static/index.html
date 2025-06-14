@@ -1,32 +1,26 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello, world!</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="icon" href="favicon.png" />
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<title>Hello, world!</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<meta name="description" content="" />
-	<link rel="icon" href="favicon.png" />
-</head>
-
-<body>
-	<h1>Hello, world!</h1>
-	<button type="button" onclick="sendPOST()">Send</button>
-</body>
-<script>
-	function sendPOST() {
-		fetch("http://localhost:8080/api/authentication/login", {
-			method: "POST",
-			body: JSON.stringify({
-				userId: 1,
-				title: "Fix my bugs",
-				completed: false,
-			}),
-			headers: {
-				"Content-type": "text/plain; charset=UTF-8",
-			},
-		});
-	}
-</script>
-
+  <body>
+    <h1>Hello, world!</h1>
+    <button type="button" onclick="login()">Send</button>
+  </body>
+  <script>
+    function login() {
+      fetch("http://localhost:8080/api/authentication/login", {
+        method: "POST",
+        body: "2bd6b2cd-569c-4073-9756-1c857bfe02ee",
+        headers: {
+          "Content-type": "text/plain; charset=UTF-8",
+        },
+      });
+    }
+  </script>
 </html>

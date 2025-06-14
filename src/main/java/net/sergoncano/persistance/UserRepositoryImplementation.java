@@ -2,14 +2,15 @@ package net.sergoncano.persistance;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Scanner;
-import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.UUID;
 
-import net.sergoncano.domain.UserRepository;
+import net.sergoncano.domain.user.UserRepository;
 import net.sergoncano.domain.model.User;
 
 public class UserRepositoryImplementation implements UserRepository {
@@ -29,23 +30,27 @@ public class UserRepositoryImplementation implements UserRepository {
 	}
 
 	public void AddUser(UUID uuid, String name) {
+		PrintWriter fw;
 		try {
-		FileWriter fw = new FileWriter(databaseFile, true);
+		fw = new PrintWriter(new FileOutputStream(
+			databaseFile, true //Append
+			));
+		fw.println(uuid.toString() + " " + name + "0");
 		} catch(IOException e) {
 			System.out.println("An error has occurred");
+		} finally {
+			fw.close();
 		}
-		fw.println(uuid.toString() + " " + name + "0");
-		fw.close();
 	}
 
 	public void addScoreToUser(User user, int score) {
 		Scanner sc = new Scanner(databaseFile);
 		ArrayList<User> db = parseDatabase(sc);
 		sc.close();
-		FileWriter fw = new FileWriter(databaseFile, false);
+		PrintWriter	fw = new PrintWriter(databaseFile);
 		for(User dbuser : db) {
 			if(user.equals(dbuser)) {
-				fw.println(dbuser.getUUID().toString() + " " + dbuser.getName() + " " + dbuser.getScore()+1);
+				fw.println(dbuser.getUUID().toString() + " " + dbuser.getName() + " " + dbuser.getScore()+score);
 			} else {
 				fw.println(dbuser.getUUID().toString() + " " + dbuser.getName() + " " + dbuser.getScore());
 			}

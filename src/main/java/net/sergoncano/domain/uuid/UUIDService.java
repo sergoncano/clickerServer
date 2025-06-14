@@ -1,4 +1,4 @@
-package net.sergoncano.domain;
+package net.sergoncano.domain.uuid;
 import java.util.UUID;
 
 public interface UUIDService {

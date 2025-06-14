@@ -1,4 +1,4 @@
-package net.sergoncano.domain;
+package net.sergoncano.domain.user;
 
 import net.sergoncano.domain.model.User;
 import java.util.Optional;

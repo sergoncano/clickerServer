@@ -1,4 +1,4 @@
-package net.sergoncano.domain;
+package net.sergoncano.domain.authentication;
 
 import org.springframework.http.ResponseEntity;
 
