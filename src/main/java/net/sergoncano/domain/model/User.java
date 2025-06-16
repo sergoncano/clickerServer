@@ -7,7 +7,8 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 public class User {
-	private UUID uuid;
+	private String uuid;
 	private String name;
 	private int score;
+
 }
