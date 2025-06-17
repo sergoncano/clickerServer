@@ -10,14 +10,9 @@ import net.sergoncano.persistance.dao.jpa.entity.UserEntity;
 /**
  * UserJpaMapper
  */
-@Mapper
 public interface UserJpaMapper {
 
-	UserJpaMapper INSTANCE = Mappers.getMapper(UserJpaMapper.class);
-	
-	@Mapping(source = "name", target = "username")
 	UserEntity userToUserEntity(User user);
 
-	@Mapping(source = "username", target = "name")
 	User userEntityToUser(UserEntity userEntity);
 }

@@ -29,7 +29,7 @@ public class UserDaoDbImplementation implements UserDaoDb{
 	@Override
 	public Optional<User> getByUuid(String uuid) {
 		return Optional.ofNullable(userJpaRepository.findByUuid(uuid))
-				.map(UserJpaMapper.INSTANCE::userEntityToUser);
+				.map(userJpaMapper::userEntityToUser);
 	}
 
 	@Override
@@ -43,12 +43,12 @@ public class UserDaoDbImplementation implements UserDaoDb{
 
 	@Override
 	public ArrayList<User> getAll() {
-		return (ArrayList<User>) userJpaRepository.findAll().stream().map(UserJpaMapper.INSTANCE::userEntityToUser).toList();
+		return (ArrayList<User>) userJpaRepository.findAll().stream().map(userJpaMapper::userEntityToUser).toList();
 	}
 
 	@Override
 	public void insert(User t) {
-		userJpaRepository.save(UserJpaMapper.INSTANCE.userToUserEntity(t));
+		userJpaRepository.save(userJpaMapper.userToUserEntity(t));
 	}
 
 	@Override
