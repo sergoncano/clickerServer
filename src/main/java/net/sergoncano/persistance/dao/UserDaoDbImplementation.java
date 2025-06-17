@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import net.sergoncano.common.annotation.PersistanceRepository;
 import net.sergoncano.domain.model.User;
 import net.sergoncano.persistance.dao.jpa.mapper.UserJpaMapper;
 import net.sergoncano.persistance.dao.jpa.repository.UserJpaRepository;
@@ -13,13 +14,16 @@ import net.sergoncano.persistance.dao.jpa.repository.UserJpaRepository;
 /**
  * UserDaoDbImplementation
  */
-public class UserDaoDbImplementation implements GenericDaoDb<User>{
+@PersistanceRepository
+public class UserDaoDbImplementation implements UserDaoDb{
 
 	private UserJpaRepository userJpaRepository;
+	private UserJpaMapper userJpaMapper;
 
 	@Autowired
-	UserDaoDbImplementation(UserJpaRepository userJpaRepository) {
+	UserDaoDbImplementation(UserJpaRepository userJpaRepository, UserJpaMapper userJpaMapper) {
 		this.userJpaRepository = userJpaRepository;
+		this.userJpaMapper = userJpaMapper;
 	}
 
 	@Override

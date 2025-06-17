@@ -33,9 +33,13 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
 	}
 
 	public ResponseEntity<String> register(String name) {
-		String uuid = uuidService.getUUID().toString();
-		userRepository.AddUser(uuid, name);
-		System.out.println("AuthenticationService finished");
-		return ResponseEntity.status(HttpStatus.OK).body(uuid.toString());
+		try {
+			String uuid = uuidService.getUUID().toString();
+			User user = new User(uuid, name, 0);
+			userRepository.AddUser(user);
+			return ResponseEntity.status(HttpStatus.OK).body(uuid);
+		} catch(Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("There was an error creating the user.");
+		}
 	}
 }
