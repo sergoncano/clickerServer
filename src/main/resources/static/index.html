@@ -1,59 +1,29 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello, world!</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="icon" href="favicon.png" />
+    <script src="index.js"></script>
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<title>Hello, world!</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<meta name="description" content="" />
-	<link rel="icon" href="favicon.png" />
-</head>
-
-<body>
-	<textarea rows="1" cols="36" placeholder="User login token" id="login-textarea"></textarea>
-	<button type="button" onclick="login()">Login</button>
-	<br />
-	<textarea rows="1" cols="10" placeholder="Username" id="register-textarea"></textarea>
-	<button type="button" onclick="register()">Register</button>
-</body>
-<script>
-	async function login() {
-		let token = document.getElementById("login-textarea").value;
-		const response = await fetch(
-			"http://localhost:8080/api/authentication/login",
-			{
-				method: "POST",
-				body: token,
-				headers: {
-					"Content-type": "text/plain; charset=UTF-8",
-				},
-			},
-		);
-		if (!response.ok) {
-			alert(response.body);
-		} else {
-			alert(response.body);
-		}
-	}
-
-	async function register() {
-		let username = document.getElementById("register-textarea").value;
-		const response = await fetch(
-			"http://localhost:8080/api/authentication/register",
-			{
-				method: "POST",
-				body: username,
-				headers: {
-					"Content-type": "text/plain; charset=UTF-8",
-				},
-			},
-		);
-		if (!response.ok) {
-			alert(response.body);
-		} else {
-			alert("Registration successful, your uuid is: " + response.body);
-		}
-	}
-</script>
-
+  <body>
+    <textarea
+      rows="1"
+      cols="36"
+      placeholder="User login token"
+      id="login-textarea"
+    ></textarea>
+    <button type="button" onclick="login()">Login</button>
+    <br />
+    <textarea
+      rows="1"
+      cols="10"
+      placeholder="Username"
+      id="register-textarea"
+    ></textarea>
+    <button type="button" onclick="register()">Register</button>
+  </body>
 </html>
