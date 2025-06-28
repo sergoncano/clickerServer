@@ -12,7 +12,7 @@
 	<artifactId>clickerServer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Clicker Server</name>
-	<description>Test for java backend development</description>
+	<description>A template server for a clicker game</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -37,17 +37,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.mapstruct</groupId>
-			<artifactId>mapstruct</artifactId>
-			<version>1.5.5.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mapstruct</groupId>
-			<artifactId>mapstruct-processor</artifactId>
-			<version>1.5.5.Final</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
