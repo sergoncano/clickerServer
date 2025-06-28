@@ -1,14 +1,30 @@
 let uuid;
 
 document.addEventListener('DOMContentLoaded', async () => {
-	loaduuid();
+	loadstats();
 	await loadscore();
 });
 
-function loaduuid() {
-	const params = new URLSearchParams(window.location.search);
-	uuid = params.get("uuid") || "Error: No uuid found";
-	document.getElementById("uuid-label").textContent = decodeURIComponent(uuid);
+function loadstats() {
+	uuid = localStorage.getItem("uuid");
+	username = localStorage.getItem("username");
+	if(uuid == null) {
+		alert("No uuid found");
+		history.back();
+	}
+	if(username == null) {
+		alert("No username found");
+		history.back();
+	}
+	document.getElementById("username-label").textContent = username;
+	document.getElementById("uuid-label").textContent = uuid;
+}
+
+function logout() {
+	alert("Your user identifier is: " + uuid + ". Don't forget it or you will lose access to your account.");
+	localStorage.removeItem("uuid");
+	localStorage.removeItem("username");
+	window.open("/index.html", "_self");
 }
 
 async function loadscore() {

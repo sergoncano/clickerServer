@@ -1,16 +1,20 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Clicker</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="Clicker game" />
-    <script src="main.js"></script>
-  </head>
 
-  <body>
-    <div>Your uuid is: <span id="uuid-label"></span></div>
-    <div id="score-label">0</div>
-    <button type="button" onclick="clickfunction()">Click me!</button>
-  </body>
+<head>
+	<meta charset="UTF-8" />
+	<title>Clicker</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="description" content="Clicker game" />
+	<script src="main.js"></script>
+</head>
+
+<body>
+	<div>Your username is: <span id="username-label"></span></div>
+	<div>Your uuid is: <span id="uuid-label"></span></div>
+	<button type="button" onclick="clickfunction()">Click me!</button>
+	<div id="score-label"></div>
+	<button type="button" onclick="logout()">Log out</button>
+</body>
+
 </html>

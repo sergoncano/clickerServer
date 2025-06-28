@@ -29,7 +29,7 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
 		if(user.isEmpty()) 
 			return ResponseEntity.status(HttpStatus.FORBIDDEN).body("The provided user identifier is not valid.");
 		else 
-			return ResponseEntity.status(HttpStatus.OK).body("Login successful.");
+			return ResponseEntity.status(HttpStatus.OK).body(user.get().getName());
 	}
 
 	public ResponseEntity<String> register(String name) {
