@@ -21,7 +21,7 @@ function loadstats() {
 }
 
 function logout() {
-	alert("Your user identifier is: " + uuid + ". Don't forget it or you will lose access to your account.");
+	alert("Your login token is: " + uuid + ". Note it down or you will lose access to your account.");
 	localStorage.removeItem("uuid");
 	localStorage.removeItem("username");
 	window.open("/index.html", "_self");
