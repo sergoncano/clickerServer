@@ -22,7 +22,6 @@ public class UUIDAPIControllerImplementation implements UUIDAPIController {
 	@GetMapping
 	public String UUIDs(){
 		String uuid = uuidService.getUUID().toString();
-		System.out.println("Returned requested random UUID: " + uuid);
 		return uuid;
 	}
 }
