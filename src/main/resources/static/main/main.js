@@ -51,7 +51,7 @@ async function getscore() {
 }
 
 async function clickfunction() {
-	await fetch(
+	const response = await fetch(
 	  "/api/game/click",
 	  {
 		method: "POST",
@@ -61,6 +61,15 @@ async function clickfunction() {
 		},
 	  },
 	);
-	await loadscore();
+	if(response.ok) {
+		await loadscore();
+	} else {
+		alert("There was a problem connecting to the server.")
+	}
 }
 
+function increaseScore() {
+	  const currentScore = document.getElementById("score-label").textContent;
+	  document.getElementById("score-label").textContent = currentScore + 1;
+
+}
